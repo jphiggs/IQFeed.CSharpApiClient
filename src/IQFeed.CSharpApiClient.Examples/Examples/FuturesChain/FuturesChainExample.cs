@@ -5,7 +5,6 @@ using System.Collections.Generic;
 using IQFeed.CSharpApiClient.Examples.Common;
 using IQFeed.CSharpApiClient.Lookup;
 
-
 namespace IQFeed.CSharpApiClient.Examples.Examples.FuturesChain
 {
     public class FuturesChainExample : IExampleAsync
@@ -27,25 +26,7 @@ namespace IQFeed.CSharpApiClient.Examples.Examples.FuturesChain
             "@EU",
             "@JY",
             "@PX",
-            "@SF" //,
-            //"@ED",
-            //"@FV",
-            //"@US",
-            //"@TY",
-            //"@FF",
-            //"QCL",
-            //"QNG",
-            //"QGC",
-            //"QHG",
-            //"QSI",
-            //"@GF",
-            //"@LE",
-            //"@HE",
-            //"@S",
-            //"@SM",
-            //"@BO",
-            //"@C",
-            //"@W"
+            "@SF" 
         };
         #endregion
 
@@ -64,9 +45,6 @@ namespace IQFeed.CSharpApiClient.Examples.Examples.FuturesChain
             lookupClient.Connect();
 
             // Step 5 - Make any requests you need or want!
-            //var futureChain1 = await lookupClient.Chains.ReqChainFutureAsync("@GC", "FGHJKMNQUVXZ", "89012334567");
-            //var futureChain2 = await lookupClient.Chains.ReqChainFutureAsync("@ED", "FGHJKMNQUVXZ", "89012334567");
-            //var futureChain3 = await lookupClient.Chains.ReqChainFutureAsync("QCL", "FGHJKMNQUVXZ", "89012334567");
 
             foreach (var symbol in Symbols)
             {
@@ -77,18 +55,6 @@ namespace IQFeed.CSharpApiClient.Examples.Examples.FuturesChain
                     Console.WriteLine($"{msg.Expiration:MMM-yyyy} {msg.FutureRoot} {msg.Symbol} ");
                 }
             }
-
-            //Console.WriteLine($"Fetched {futureChain2.Count()} Future Chain 2 messages:");
-            //foreach (var msg in futureChain2)
-            //{
-            //    Console.WriteLine($"{msg.Expiration} {msg.FutureRoot} {msg.Symbol} ");
-            //}
-
-            //Console.WriteLine($"Fetched {futureChain3.Count()} Future Chain 3 messages:");
-            //foreach (var msg in futureChain3)
-            //{
-            //    Console.WriteLine($"{msg.Expiration} {msg.FutureRoot} {msg.Symbol} ");
-            //}
         }
 
         void IExample.Run()
